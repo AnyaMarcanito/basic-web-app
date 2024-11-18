@@ -21,7 +21,7 @@ export default function QueryProcessor(query: string): string {
     console.log((num1 + num2).toString())
     return (num1 + num2).toString();
   }
-  if (query.includes("multiplied")) {
+  if (query.includes("multiplied by")) {
     const parts = query.split(" ");
     const num1 = parseInt(parts[2], 10);
     const num2 = parseInt(parts[4], 10);
@@ -37,6 +37,17 @@ export default function QueryProcessor(query: string): string {
       return numbers[1].toString();
     } else {
       return numbers[2].toString();
+    }
+  }
+  if (query.includes("Which of the following numbers is both a square and a cube:")) {
+    const parts = query.split(":");
+    const numbers = parts[1].split(",").map((num) => parseInt(num.trim(), 10));
+    for (let i = 0; i < numbers.length; i++) {
+      const sqrt = Math.sqrt(numbers[i]);
+      const cbrt = Math.cbrt(numbers[i]);
+      if (sqrt === Math.floor(sqrt) && cbrt === Math.floor(cbrt)) {
+        return numbers[i].toString();
+      }
     }
   }
 
