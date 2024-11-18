@@ -36,7 +36,17 @@ export default function QueryProcessor(query: string): string {
     console.log((num1 + num2).toString())
     return (num1 + num2).toString();
   }
-
+  if (query.includes("Which of the following numbers is the largest:")) {
+    const parts = query.split(":");
+    const numbers = parts[1].split(",").map((num) => parseInt(num.trim(), 10));
+    if (numbers[0] > numbers[1] && numbers[0] > numbers[2]) {
+      return numbers[0].toString();
+    } else if (numbers[1] > numbers[0] && numbers[1] > numbers[2]) {
+      return numbers[1].toString();
+    } else {
+      return numbers[2].toString();
+    }
+  }
 
   return "";
 }
