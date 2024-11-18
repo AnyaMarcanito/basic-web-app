@@ -56,12 +56,6 @@ export default function QueryProcessor(query: string): string {
       }
     }
   }
-  if (query.includes("Which of the following numbers are primes:")) {
-    const parts = query.split(":");
-    const numbers = parts[1].split(",").map((num) => parseInt(num.trim(), 10));
-    const primes = numbers.filter((num) => isPrime(num));
-    return primes.join(", ");
-  }
   const isPrime = (num: number) => {
     if (num <= 1) return false;
     for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -69,6 +63,13 @@ export default function QueryProcessor(query: string): string {
     }
     return true;
   };
+  if (query.includes("Which of the following numbers are primes:")) {
+    const parts = query.split(":");
+    const numbers = parts[1].split(",").map((num) => parseInt(num.trim(), 10));
+    const primes = numbers.filter((num) => isPrime(num));
+    return primes.join(", ");
+  }
+
 
   return "";
 }
