@@ -29,6 +29,13 @@ export default function QueryProcessor(query: string): string {
   if (query.includes("Which of the following numbers is the largest: 95, 15, 85?")) {
     return ( "95" );
   }
+  if (query.includes("plus")) {
+    const parts = query.split(" ");
+    const num1 = parseInt(parts[2], 10);
+    const num2 = parseInt(parts[4], 10);
+    console.log((num1 + num2).toString())
+    return (num1 + num2).toString();
+  }
 
 
   return "";
