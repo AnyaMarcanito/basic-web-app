@@ -21,6 +21,13 @@ export default function QueryProcessor(query: string): string {
     console.log((num1 + num2).toString())
     return (num1 + num2).toString();
   }
+  if (query.includes("minus")) {
+    const parts = query.split(" ");
+    const num1 = parseInt(parts[2], 10);
+    const num2 = parseInt(parts[4], 10);
+    console.log((num1 - num2).toString())
+    return (num1 - num2).toString();
+  }
   if (query.includes("What is") && query.includes("multiplied by")) {
     const parts = query.replace("What is", "").replace("?", "").split("multiplied by");
     const num1 = parseInt(parts[0].trim(), 10);
