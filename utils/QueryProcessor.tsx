@@ -10,5 +10,9 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("usb id")) {
     return ( "Your usb id is 19-10336" );
   }
+
+  if (query.toLowerCase().includes("name")) {
+    return ( "Anya" );
+  }
   return "";
 }
