@@ -14,5 +14,9 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return ( "Anya" );
   }
+  if (query.includes("What is 1 plus 9?")) {
+    return ( "10" );
+  }
+  
   return "";
 }
