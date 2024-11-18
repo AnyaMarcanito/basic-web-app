@@ -14,27 +14,19 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return ( "Anya" );
   }
-  if (query.includes("What is 1 plus 9?")) {
-    return ( "10" );
-  }
-  if (query.includes("What is 52 plus 87?")) {
-    return ( "139" );
-  }
-  if (query.includes("What is 33 plus 53?")) {
-    return ( "86" );
-  }
-  if (query.includes("What is 43 plus 60?")) {
-    return ( "103" );
-  }
-  if (query.includes("Which of the following numbers is the largest: 95, 15, 85?")) {
-    return ( "95" );
-  }
   if (query.includes("plus")) {
     const parts = query.split(" ");
     const num1 = parseInt(parts[2], 10);
     const num2 = parseInt(parts[4], 10);
     console.log((num1 + num2).toString())
     return (num1 + num2).toString();
+  }
+  if (query.includes("multiplied")) {
+    const parts = query.split(" ");
+    const num1 = parseInt(parts[2], 10);
+    const num2 = parseInt(parts[4], 10);
+    console.log((num1 + num2).toString())
+    return (num1 * num2).toString();
   }
   if (query.includes("Which of the following numbers is the largest:")) {
     const parts = query.split(":");
